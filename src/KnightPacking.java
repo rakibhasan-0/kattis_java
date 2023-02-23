@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class KnightPacking {
     public static void main(String [] args){
         int num;
@@ -11,7 +10,5 @@ public class KnightPacking {
         else{
             System.out.println("First");
         }
-
-
     }
 }
