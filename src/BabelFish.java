@@ -6,6 +6,7 @@ public class BabelFish {
         HashMap<String,String> dic = new HashMap<>();
         Scanner scan = new Scanner(System.in);
         String all = scan.nextLine();
+
         while(all.contains(" ")){
             String val = all.split(" ")[0];
             String key = all.split(" ")[1];
