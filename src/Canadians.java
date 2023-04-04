@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Canadians {
     public static void main(String[] args){
+
         StringBuffer buffer = new StringBuffer();
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()){
@@ -9,7 +10,7 @@ public class Canadians {
         }
 
         String line = buffer.toString();
-        if (line.contains("eh")){
+        if (line.endsWith("eh?")){
             System.out.println("Canadian!");
         }
         else{
