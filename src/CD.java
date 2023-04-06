@@ -1,52 +1,44 @@
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashSet;
 import java.util.Scanner;
 
+
 public class CD {
-    public static void main(String[]args) throws FileNotFoundException {
-        Scanner scan = new Scanner(System.in);
-        String s = scan.nextLine();
-        long jackCD = Long.parseLong(s.split(" ")[0]);
-        long jilCD = Long.parseLong(s.split(" ")[1]);
-        ArrayList<Long> cDofJack = new ArrayList<>();
-        ArrayList<Long> cDofJil = new ArrayList<>();
+    public static void main(String[]args) throws IOException {
+        BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
+        String line = scan.readLine();
+        String[] parts = line.split(" ");
+        int jack = Integer.parseInt(parts[0]);
+        int jill = Integer.parseInt(parts[1]);
 
-        int count = 0;
-        boolean countJack = true;
-        boolean countJil = false;
+        while (!line.equals("0 0")) {
 
-        while(scan.hasNext()){
-            long l = scan.nextLong();
-            if(jackCD == count){
-                countJack = false;
-                countJil = true;
-                count = 0;
+            int duplicates = 0;
+            HashSet<String> cds = new HashSet<String>();
+
+
+            for (int i = 0; i < jack; i++) {
+                cds.add(scan.readLine());
             }
-            if(countJack && jackCD > count){
-                cDofJack.add(l);
-              //  System.out.println(count);
-                count++;
+
+
+            for (int j = 0; j < jill; j++) {
+                if (cds.contains(scan.readLine())) {
+                    duplicates++;
+                }
             }
-            if(jilCD == count){
-                countJil = false;
-            }
-            if(countJil && jilCD > count){
-                cDofJil.add(l);
-                count++;
-                //System.out.println("number"+count);
-            }
+
+
+            System.out.println(duplicates);
+            line = scan.readLine();
+            String[] arr = line.split(" ");
+            jack = Integer.parseInt(arr[0]);
+            jill = Integer.parseInt(arr[1]);
+
         }
-        cDofJil.remove(cDofJil.size()-1);
-        cDofJil.remove(cDofJil.size()-1);
-        Object[] cdJils = cDofJil.toArray();
-        int sellCd = 0;
-        for(Long i:cDofJack){
-            if(Arrays.binarySearch(cdJils,i) >= 0){
-                sellCd++;
-            }
-        }
-        System.out.println(sellCd);
 
     }
 }
