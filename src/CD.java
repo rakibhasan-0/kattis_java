@@ -10,12 +10,12 @@ public class CD {
     public static void main(String[]args) throws IOException {
         BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
         String line = scan.readLine();
-        String[] parts = line.split(" ");
-        int jack = Integer.parseInt(parts[0]);
-        int jill = Integer.parseInt(parts[1]);
+
 
         while (!line.equals("0 0")) {
-
+            String[] parts = line.split(" ");
+            int jack = Integer.parseInt(parts[0]);
+            int jill = Integer.parseInt(parts[1]);
             int duplicates = 0;
             HashSet<String> cds = new HashSet<String>();
 
@@ -34,9 +34,6 @@ public class CD {
 
             System.out.println(duplicates);
             line = scan.readLine();
-            String[] arr = line.split(" ");
-            jack = Integer.parseInt(arr[0]);
-            jill = Integer.parseInt(arr[1]);
 
         }
 
