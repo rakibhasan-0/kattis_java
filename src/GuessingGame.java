@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class GuessingGame {
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -31,8 +32,6 @@ public class GuessingGame {
             if(line.equals("too high")){
                 max = Math.min(num, max);
             }
-
         }
-
     }
 }
